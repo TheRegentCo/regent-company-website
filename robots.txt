@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://regentcompany.co.uk/sitemap.xml
