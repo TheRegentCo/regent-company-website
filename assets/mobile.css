@@ -11,6 +11,7 @@
   .brand-copy strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .menu-toggle {
+    position: relative;
     width: 44px;
     height: 44px;
     display: grid;
@@ -18,34 +19,45 @@
     border: 1px solid rgba(255,255,255,.12);
     border-radius: 14px;
     background: rgba(255,255,255,.04);
+    color: #fffdf8;
     font-size: 0;
     flex: 0 0 auto;
+    overflow: hidden;
     -webkit-tap-highlight-color: transparent;
   }
-  .menu-toggle::before {
-    content: "";
-    width: 20px;
-    height: 14px;
-    background:
-      linear-gradient(currentColor,currentColor) 0 0/100% 2px no-repeat,
-      linear-gradient(currentColor,currentColor) 0 6px/100% 2px no-repeat,
-      linear-gradient(currentColor,currentColor) 0 12px/100% 2px no-repeat;
-    transition: transform .2s ease, opacity .2s ease;
-  }
-  .menu-toggle[aria-expanded="true"]::before {
-    height: 20px;
-    background:
-      linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,
-      linear-gradient(currentColor,currentColor) center/100% 2px no-repeat;
-    transform: rotate(45deg);
-  }
-  .menu-toggle[aria-expanded="true"]::after {
+  .menu-toggle::before,
+  .menu-toggle::after {
     content: "";
     position: absolute;
+    left: 50%;
     width: 20px;
     height: 2px;
+    border-radius: 999px;
     background: currentColor;
-    transform: rotate(-45deg);
+    transform-origin: center;
+    transition: transform .2s ease, top .2s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  .menu-toggle::before {
+    top: 14px;
+    transform: translateX(-50%);
+    box-shadow: 0 7px 0 currentColor, 0 14px 0 currentColor;
+  }
+  .menu-toggle::after {
+    top: 21px;
+    transform: translateX(-50%) rotate(-45deg);
+    opacity: 0;
+  }
+  .menu-toggle[aria-expanded="true"]::before {
+    top: 21px;
+    box-shadow: none;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"]::after {
+    opacity: 1;
+  }
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--gold-soft);
+    outline-offset: 3px;
   }
 
   .nav-links {
@@ -169,4 +181,6 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .menu-toggle::before,
+  .menu-toggle::after { transition: none; }
 }
