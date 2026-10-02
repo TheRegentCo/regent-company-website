@@ -35,7 +35,7 @@
     border-radius: 999px;
     background: currentColor;
     transform-origin: center;
-    transition: transform .2s ease, top .2s ease, opacity .2s ease;
+    transition: none;
   }
   .menu-toggle::before {
     top: 14px;
@@ -181,6 +181,4 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .menu-toggle::before,
-  .menu-toggle::after { transition: none; }
 }
