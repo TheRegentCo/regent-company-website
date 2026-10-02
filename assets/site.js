@@ -1,3 +1,10 @@
+if (!document.querySelector('link[href="assets/mobile.css"], link[href="/assets/mobile.css"]')) {
+  const mobileStyles = document.createElement('link');
+  mobileStyles.rel = 'stylesheet';
+  mobileStyles.href = 'assets/mobile.css';
+  document.head.appendChild(mobileStyles);
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
