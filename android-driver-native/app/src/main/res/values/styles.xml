@@ -1,0 +1,10 @@
+<resources>
+    <style name="Theme.RegentMile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#111111</item>
+        <item name="android:navigationBarColor">#111111</item>
+        <item name="colorPrimary">#BFA66A</item>
+        <item name="colorPrimaryVariant">#9B844E</item>
+        <item name="colorSecondary">#BFA66A</item>
+    </style>
+</resources>
