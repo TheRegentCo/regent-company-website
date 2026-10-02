@@ -1,3 +1,9 @@
+const favicon = document.querySelector('link[rel~="icon"]') || document.createElement('link');
+favicon.rel = 'icon';
+favicon.type = 'image/svg+xml';
+favicon.href = '/assets/favicon.svg';
+if (!favicon.parentNode) document.head.appendChild(favicon);
+
 const mobileStyles = document.createElement('link');
 mobileStyles.rel = 'stylesheet';
 mobileStyles.href = 'assets/mobile.css';
