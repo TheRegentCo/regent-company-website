@@ -1,0 +1,56 @@
+name: Build Regent Mile Driver Compliance
+
+on:
+  push:
+    branches: [driver-compliance-native]
+    paths:
+      - 'android-driver-compliance/source.zip'
+      - '.github/workflows/build-driver-compliance.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK 36
+        run: yes | sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: Unpack Android source
+        run: |
+          rm -rf /tmp/regent-driver-build
+          mkdir -p /tmp/regent-driver-build
+          unzip -q android-driver-compliance/source.zip -d /tmp/regent-driver-build
+          test -f /tmp/regent-driver-build/settings.gradle.kts
+          test -f /tmp/regent-driver-build/app/build.gradle.kts
+
+      - name: Compile APK
+        working-directory: /tmp/regent-driver-build
+        run: gradle :app:assembleDebug --stacktrace --no-daemon
+
+      - name: Verify APK
+        run: |
+          APK=/tmp/regent-driver-build/app/build/outputs/apk/debug/app-debug.apk
+          test -s "$APK"
+          $ANDROID_HOME/build-tools/36.0.0/aapt dump badging "$APK" | head -25
+          $ANDROID_HOME/build-tools/36.0.0/apksigner verify --verbose --print-certs "$APK"
+          sha256sum "$APK"
+          cp "$APK" "$GITHUB_WORKSPACE/Regent-Mile-Driver-Compliance-0.8.5.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Regent-Mile-Driver-Compliance-0.8.5
+          path: Regent-Mile-Driver-Compliance-0.8.5.apk
+          if-no-files-found: error
