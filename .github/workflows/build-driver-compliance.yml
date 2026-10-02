@@ -4,7 +4,6 @@ on:
   push:
     branches: [driver-compliance-native]
     paths:
-      - 'android-driver-compliance/source.zip'
       - '.github/workflows/build-driver-compliance.yml'
   workflow_dispatch:
 
@@ -28,11 +27,14 @@ jobs:
         with:
           gradle-version: '9.3.1'
 
-      - name: Unpack Android source
+      - name: Download and verify Android source
         run: |
-          rm -rf /tmp/regent-driver-build
+          rm -rf /tmp/regent-driver-build /tmp/regent-source.zip
+          curl -fL --retry 3 --connect-timeout 15 'https://drive.google.com/uc?export=download&id=1aGTaCbzxCikib3utN8-rN3hAma_WWiDa' -o /tmp/regent-source.zip
+          test "$(stat -c%s /tmp/regent-source.zip)" -gt 100000
+          unzip -t /tmp/regent-source.zip >/dev/null
           mkdir -p /tmp/regent-driver-build
-          unzip -q android-driver-compliance/source.zip -d /tmp/regent-driver-build
+          unzip -q /tmp/regent-source.zip -d /tmp/regent-driver-build
           test -f /tmp/regent-driver-build/settings.gradle.kts
           test -f /tmp/regent-driver-build/app/build.gradle.kts
 
