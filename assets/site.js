@@ -1,4 +1,4 @@
-const faviconVersion = '20261003-1';
+const faviconVersion = '20261003-2';
 
 const addHeadLink = (attributes) => {
   const link = document.createElement('link');
@@ -7,8 +7,8 @@ const addHeadLink = (attributes) => {
   return link;
 };
 
-// Use a verified SVG favicon for modern desktop browsers, while retaining
-// PNG/ICO fallbacks. Only add formats that the current page has not declared.
+// Cross-browser favicon set: SVG for modern browsers, PNG/ICO fallbacks,
+// Apple touch icon, and Safari pinned-tab support on macOS.
 if (!document.querySelector('link[rel~="icon"][type="image/svg+xml"]')) {
   addHeadLink({ rel: 'icon', type: 'image/svg+xml', sizes: 'any', href: `/favicon.svg?v=${faviconVersion}` });
 }
@@ -19,7 +19,10 @@ if (!document.querySelector('link[rel="shortcut icon"]')) {
   addHeadLink({ rel: 'shortcut icon', type: 'image/x-icon', href: `/favicon.ico?v=${faviconVersion}` });
 }
 if (!document.querySelector('link[rel="apple-touch-icon"]')) {
-  addHeadLink({ rel: 'apple-touch-icon', href: `/apple-touch-icon.png?v=${faviconVersion}` });
+  addHeadLink({ rel: 'apple-touch-icon', sizes: '180x180', href: `/apple-touch-icon.png?v=${faviconVersion}` });
+}
+if (!document.querySelector('link[rel="mask-icon"]')) {
+  addHeadLink({ rel: 'mask-icon', href: `/safari-pinned-tab.svg?v=${faviconVersion}`, color: '#171714' });
 }
 
 if (!document.querySelector('link[href="assets/mobile.css"], link[href="/assets/mobile.css"]')) {
