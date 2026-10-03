@@ -1,3 +1,27 @@
+const faviconVersion = '20261003-1';
+
+const addHeadLink = (attributes) => {
+  const link = document.createElement('link');
+  Object.entries(attributes).forEach(([key, value]) => link.setAttribute(key, value));
+  document.head.appendChild(link);
+  return link;
+};
+
+// Use a verified SVG favicon for modern desktop browsers, while retaining
+// PNG/ICO fallbacks. Only add formats that the current page has not declared.
+if (!document.querySelector('link[rel~="icon"][type="image/svg+xml"]')) {
+  addHeadLink({ rel: 'icon', type: 'image/svg+xml', sizes: 'any', href: `/favicon.svg?v=${faviconVersion}` });
+}
+if (!document.querySelector('link[rel~="icon"][type="image/png"]')) {
+  addHeadLink({ rel: 'icon', type: 'image/png', sizes: '32x32', href: `/favicon-32x32.png?v=${faviconVersion}` });
+}
+if (!document.querySelector('link[rel="shortcut icon"]')) {
+  addHeadLink({ rel: 'shortcut icon', type: 'image/x-icon', href: `/favicon.ico?v=${faviconVersion}` });
+}
+if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+  addHeadLink({ rel: 'apple-touch-icon', href: `/apple-touch-icon.png?v=${faviconVersion}` });
+}
+
 if (!document.querySelector('link[href="assets/mobile.css"], link[href="/assets/mobile.css"]')) {
   const mobileStyles = document.createElement('link');
   mobileStyles.rel = 'stylesheet';
