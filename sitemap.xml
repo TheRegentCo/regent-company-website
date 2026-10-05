@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://regentcompany.co.uk/</loc></url>
-  <url><loc>https://regentcompany.co.uk/about.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/what-we-do.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/how-we-work.html</loc></url>
   <url><loc>https://regentcompany.co.uk/ventures.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/for-businesses.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/for-founders.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/about.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/venture-assessment.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/start-a-venture.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/contact.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/legal.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/privacy.html</loc></url>
+  <url><loc>https://regentcompany.co.uk/terms.html</loc></url>
   <url><loc>https://regentcompany.co.uk/regent-mile.html</loc></url>
   <url><loc>https://regentcompany.co.uk/business-courier-london.html</loc></url>
   <url><loc>https://regentcompany.co.uk/same-day-delivery-london.html</loc></url>
@@ -15,6 +25,4 @@
   <url><loc>https://regentcompany.co.uk/regent-mile-courier-agreement.html</loc></url>
   <url><loc>https://regentcompany.co.uk/regent-mile-privacy.html</loc></url>
   <url><loc>https://regentcompany.co.uk/regent-mile-policies.html</loc></url>
-  <url><loc>https://regentcompany.co.uk/legal.html</loc></url>
-  <url><loc>https://regentcompany.co.uk/contact.html</loc></url>
 </urlset>
