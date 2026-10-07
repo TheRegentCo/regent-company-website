@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /regent-enquiries.html
 
 Sitemap: https://regentcompany.co.uk/sitemap.xml
