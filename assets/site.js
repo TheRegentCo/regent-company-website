@@ -1,3 +1,9 @@
+const assetVersion='20261008-3';
+document.querySelectorAll('link[rel="stylesheet"]').forEach(link=>{
+  const raw=link.getAttribute('href')||'';
+  if(/(^|\/)assets\/styles\.css(?:\?|$)/.test(raw)) link.setAttribute('href',`/assets/styles.css?v=${assetVersion}`);
+  if(/(^|\/)assets\/mobile\.css(?:\?|$)/.test(raw)) link.setAttribute('href',`/assets/mobile.css?v=${assetVersion}`);
+});
 const faviconVersion='20261008-1';
 const upsertHeadLink=(selector,attributes)=>{let link=document.querySelector(selector);if(!link){link=document.createElement('link');document.head.appendChild(link);}Object.entries(attributes).forEach(([key,value])=>link.setAttribute(key,value));return link;};
 upsertHeadLink('link[rel~="icon"][type="image/svg+xml"]',{rel:'icon',type:'image/svg+xml',sizes:'any',href:`/favicon.svg?v=${faviconVersion}`});
