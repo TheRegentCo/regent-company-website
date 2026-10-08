@@ -13,7 +13,7 @@ upsertHeadLink('link[rel="shortcut icon"]',{rel:'shortcut icon',type:'image/x-ic
 upsertHeadLink('link[rel="apple-touch-icon"]',{rel:'apple-touch-icon',sizes:'180x180',href:`/apple-touch-icon.png?v=${faviconVersion}`});
 upsertHeadLink('link[rel="mask-icon"]',{rel:'mask-icon',href:`/safari-pinned-tab.svg?v=${faviconVersion}`,color:'#80652e'});
 if(!document.querySelector('link[href="assets/mobile.css"],link[href="/assets/mobile.css"]'))upsertHeadLink('link[data-regent-mobile]',{rel:'stylesheet',href:'/assets/mobile.css','data-regent-mobile':'true'});
-document.querySelectorAll('.brand-mark').forEach(el=>el.setAttribute('aria-hidden','true'));
+document.querySelectorAll('.brand-mark').forEach(el=>{el.setAttribute('aria-hidden','true');if(!el.querySelector('img'))el.innerHTML='<img class="brand-mark-img" src="/assets/regent-collection-mark.png?v=20261008-3" alt="">';});
 
 const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const publicNav=[['what-we-do.html','What We Do'],['how-we-work.html','How We Work'],['ventures.html','Ventures'],['for-businesses.html','Businesses'],['for-founders.html','Founders'],['about.html','About'],['start-a-venture.html','Discuss a Venture']];
