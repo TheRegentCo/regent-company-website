@@ -1,4 +1,4 @@
-const assetVersion='20261008-5';
+const assetVersion='20261008-9';
 document.querySelectorAll('link[rel="stylesheet"]').forEach(link=>{
   const raw=link.getAttribute('href')||'';
   if(/(^|\/)assets\/styles\.css(?:\?|$)/.test(raw)) link.setAttribute('href',`/assets/styles.css?v=${assetVersion}`);
@@ -12,7 +12,7 @@ upsertHeadLink('link[rel~="icon"][sizes="32x32"]',{rel:'icon',type:'image/png',s
 upsertHeadLink('link[rel="shortcut icon"]',{rel:'shortcut icon',type:'image/x-icon',href:`/favicon.ico?v=${faviconVersion}`});
 upsertHeadLink('link[rel="apple-touch-icon"]',{rel:'apple-touch-icon',sizes:'180x180',href:`/apple-touch-icon.png?v=${faviconVersion}`});
 upsertHeadLink('link[rel="mask-icon"]',{rel:'mask-icon',href:`/safari-pinned-tab.svg?v=${faviconVersion}`,color:'#80652e'});
-if(!document.querySelector('link[href="assets/mobile.css"],link[href="/assets/mobile.css"]'))upsertHeadLink('link[data-regent-mobile]',{rel:'stylesheet',href:'/assets/mobile.css','data-regent-mobile':'true'});
+if(!document.querySelector('link[href^="assets/mobile.css"],link[href^="/assets/mobile.css"]'))upsertHeadLink('link[data-regent-mobile]',{rel:'stylesheet',href:`/assets/mobile.css?v=${assetVersion}`,'data-regent-mobile':'true'});
 document.querySelectorAll('.brand-mark').forEach(el=>{el.setAttribute('aria-hidden','true');el.textContent='';});
 
 const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
