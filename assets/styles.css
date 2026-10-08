@@ -39,3 +39,22 @@ section{padding:88px 0}.section-alt{background:var(--paper-2)}.section-heading{d
 .case-study.dark-section{background:#171714!important;color:#fff!important}.case-study.dark-section .case-mark{background:#1d1d19!important}.case-study.dark-section h2{color:#fff!important}.case-study.dark-section p{color:rgba(255,255,255,.76)!important}@media(max-width:620px){.case-study.dark-section{margin:0;padding:22px!important;border-radius:14px!important}.case-study.dark-section .case-mark{min-height:150px!important}.case-study.dark-section .btn-secondary{color:#fff!important;border-color:rgba(255,255,255,.45)!important}}
 
 .accessibility-report{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}.accessibility-report summary{cursor:pointer;list-style:none;font-size:12px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}.accessibility-report summary::-webkit-details-marker{display:none}.accessibility-report[open] summary{margin-bottom:18px}.accessibility-report .legal-copy{max-width:760px;padding:18px 0 0}.accessibility-report .legal-copy p{font-size:13px;line-height:1.7;color:var(--muted)}
+
+/* Regent Mile homepage case study: explicit light-surface rules */
+.case-study-feature{background:var(--white)!important;color:var(--ink)!important;border:1px solid var(--line)!important}
+.case-study-feature h2{color:var(--ink)!important}
+.case-study-feature p{color:var(--muted)!important}
+.case-study-feature .case-mark{background:var(--paper)!important;border-color:var(--line)!important}
+.case-study-feature .case-mark span{color:var(--accent)!important}
+.case-study-feature .btn-dark{background:var(--ink)!important;color:#fff!important}
+.case-study-feature .btn-outline{background:transparent!important;color:var(--ink)!important;border-color:var(--line)!important}
+
+@media(max-width:620px){
+  .case-study-feature{padding:22px 0!important;border-left:0!important;border-right:0!important;gap:20px!important}
+  .case-study-feature .case-mark{min-height:0!important;width:auto!important;display:block!important;padding:0 0 14px!important;border:0!important;border-bottom:1px solid var(--line)!important;background:transparent!important}
+  .case-study-feature .case-mark span{font-size:42px!important;line-height:1!important;letter-spacing:-.045em}
+  .case-study-feature h2{font-size:32px!important;line-height:1.08!important}
+  .case-study-feature p{font-size:15px!important;line-height:1.65!important}
+  .case-study-feature .button-row{gap:9px!important}
+  .case-study-feature .btn{min-height:48px!important}
+}
