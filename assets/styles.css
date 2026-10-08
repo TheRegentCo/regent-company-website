@@ -80,10 +80,14 @@ section{padding:88px 0}.section-alt{background:var(--paper-2)}.section-heading{d
 }
 
 /* User-approved primary corporate logo. Use one source across header and footer. */
-.site-header .brand,.site-footer .brand{display:block!important;flex:0 0 168px;width:168px;min-width:168px;height:112px;background:#fff url('/assets/regent-collection-primary.svg?v=20261008-6') center/contain no-repeat!important;border-radius:2px;overflow:hidden;font-size:0}
+.site-header .brand,.site-footer .brand{display:block!important;flex:0 0 168px;width:168px;min-width:168px;height:112px;background:transparent url('/assets/regent-collection-primary.svg?v=20261008-7') center/contain no-repeat!important;border-radius:2px;overflow:hidden;font-size:0}
 .site-header .brand .brand-mark,.site-footer .brand .brand-mark,.site-header .brand .brand-copy,.site-footer .brand .brand-copy{display:none!important}
 .site-header .nav-wrap{min-height:120px}
 .site-footer .footer-brand .brand{margin-bottom:12px}
 .official-logo-panel img{width:100%;max-width:500px;margin-inline:auto}
 @media(max-width:1080px){.site-header .nav-wrap{min-height:106px!important}.site-header .nav-links{top:106px!important;max-height:calc(100dvh - 106px)!important}.site-header .brand{width:153px;min-width:153px;flex-basis:153px;height:102px}}
 @media(max-width:620px){.site-header .nav-wrap{min-height:96px!important}.site-header .nav-links{top:96px!important;max-height:calc(100dvh - 96px)!important}.site-header .brand{width:138px;min-width:138px;flex-basis:138px;height:92px}.site-footer .brand{width:168px;min-width:168px;flex-basis:168px;height:112px}}
+
+/* Fully transparent corporate identity presentation */
+.official-logo-panel{background:transparent!important;border:0!important;padding:0!important}
+.site-header .brand,.site-footer .brand{background-color:transparent!important;border-radius:0!important}
