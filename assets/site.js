@@ -1,11 +1,13 @@
-const faviconVersion='20261005-2';
-const addHeadLink=(attributes)=>{const link=document.createElement('link');Object.entries(attributes).forEach(([key,value])=>link.setAttribute(key,value));document.head.appendChild(link);return link;};
-if(!document.querySelector('link[rel~="icon"][type="image/svg+xml"]'))addHeadLink({rel:'icon',type:'image/svg+xml',sizes:'any',href:`/favicon.svg?v=${faviconVersion}`});
-if(!document.querySelector('link[rel~="icon"][type="image/png"]'))addHeadLink({rel:'icon',type:'image/png',sizes:'32x32',href:`/favicon-32x32.png?v=${faviconVersion}`});
-if(!document.querySelector('link[rel="shortcut icon"]'))addHeadLink({rel:'shortcut icon',type:'image/x-icon',href:`/favicon.ico?v=${faviconVersion}`});
-if(!document.querySelector('link[rel="apple-touch-icon"]'))addHeadLink({rel:'apple-touch-icon',sizes:'180x180',href:`/apple-touch-icon.png?v=${faviconVersion}`});
-if(!document.querySelector('link[rel="mask-icon"]'))addHeadLink({rel:'mask-icon',href:`/safari-pinned-tab.svg?v=${faviconVersion}`,color:'#171714'});
-if(!document.querySelector('link[href="assets/mobile.css"],link[href="/assets/mobile.css"]'))addHeadLink({rel:'stylesheet',href:'/assets/mobile.css'});
+const faviconVersion='20261008-1';
+const upsertHeadLink=(selector,attributes)=>{let link=document.querySelector(selector);if(!link){link=document.createElement('link');document.head.appendChild(link);}Object.entries(attributes).forEach(([key,value])=>link.setAttribute(key,value));return link;};
+upsertHeadLink('link[rel~="icon"][type="image/svg+xml"]',{rel:'icon',type:'image/svg+xml',sizes:'any',href:`/favicon.svg?v=${faviconVersion}`});
+upsertHeadLink('link[rel~="icon"][sizes="96x96"]',{rel:'icon',type:'image/png',sizes:'96x96',href:`/favicon-96x96.png?v=${faviconVersion}`});
+upsertHeadLink('link[rel~="icon"][sizes="32x32"]',{rel:'icon',type:'image/png',sizes:'32x32',href:`/favicon-32x32.png?v=${faviconVersion}`});
+upsertHeadLink('link[rel="shortcut icon"]',{rel:'shortcut icon',type:'image/x-icon',href:`/favicon.ico?v=${faviconVersion}`});
+upsertHeadLink('link[rel="apple-touch-icon"]',{rel:'apple-touch-icon',sizes:'180x180',href:`/apple-touch-icon.png?v=${faviconVersion}`});
+upsertHeadLink('link[rel="mask-icon"]',{rel:'mask-icon',href:`/safari-pinned-tab.svg?v=${faviconVersion}`,color:'#80652e'});
+if(!document.querySelector('link[href="assets/mobile.css"],link[href="/assets/mobile.css"]'))upsertHeadLink('link[data-regent-mobile]',{rel:'stylesheet',href:'/assets/mobile.css','data-regent-mobile':'true'});
+document.querySelectorAll('.brand-mark').forEach(el=>el.setAttribute('aria-hidden','true'));
 
 const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 const publicNav=[['what-we-do.html','What We Do'],['how-we-work.html','How We Work'],['ventures.html','Ventures'],['for-businesses.html','Businesses'],['for-founders.html','Founders'],['about.html','About'],['start-a-venture.html','Discuss a Venture']];
