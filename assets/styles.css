@@ -41,53 +41,89 @@ section{padding:88px 0}.section-alt{background:var(--paper-2)}.section-heading{d
 .accessibility-report{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}.accessibility-report summary{cursor:pointer;list-style:none;font-size:12px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}.accessibility-report summary::-webkit-details-marker{display:none}.accessibility-report[open] summary{margin-bottom:18px}.accessibility-report .legal-copy{max-width:760px;padding:18px 0 0}.accessibility-report .legal-copy p{font-size:13px;line-height:1.7;color:var(--muted)}
 
 
-/* Official corporate identity */
-.corporate-logo-link,.corporate-logo-full{display:none!important}
-
-/* Homepage Regent Mile case study */
-.case-study-feature{display:grid;grid-template-columns:minmax(180px,.52fr) minmax(0,1.48fr);gap:36px;align-items:stretch;background:var(--ink)!important;color:#fff!important;border:1px solid #2d2d28!important;padding:30px!important}
-.case-proof{display:flex;flex-direction:column;justify-content:flex-end;min-height:220px;border-right:1px solid rgba(255,255,255,.14);padding:0 28px 0 2px}
-.case-proof .kicker{color:var(--accent-light)!important;margin-bottom:auto}
-.case-proof strong{font-size:28px;line-height:1.1;color:#fff}
-.case-proof span:last-child{font-size:12px;color:rgba(255,255,255,.62);margin-top:7px}
-.case-study-feature h2{color:#fff!important;font-size:clamp(32px,4vw,48px)!important}
-.case-study-feature p{color:rgba(255,255,255,.74)!important;max-width:690px}
-.case-study-feature .btn-primary{background:var(--accent-light)!important;color:var(--ink)!important}
-.case-study-feature .btn-secondary{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.34)!important}
-
-@media(max-width:720px){
-  .case-study-feature{grid-template-columns:1fr!important;gap:22px!important;padding:24px!important}
-  .case-proof{min-height:0;border-right:0;border-bottom:1px solid rgba(255,255,255,.14);padding:0 0 20px}
-  .case-proof .kicker{margin-bottom:18px}
-  .case-proof strong{font-size:24px}
-  .case-study-feature h2{font-size:31px!important;line-height:1.1!important}
-  .case-study-feature p{font-size:15px!important;line-height:1.65!important}
-}
-
-/* Mobile case-study readability hardening */
-.case-study-feature,
-.case-study-feature *{box-sizing:border-box}
-.case-study-feature{background:#171714!important;color:#fff!important}
-.case-study-feature .case-proof{color:#fff!important}
-.case-study-feature .case-proof strong{color:#fff!important}
-.case-study-feature .case-proof span:last-child{color:rgba(255,255,255,.68)!important}
-.case-study-feature .btn-primary{background:var(--accent-light)!important;color:#171714!important;border:1px solid var(--accent-light)!important}
-.case-study-feature .btn-secondary{background:transparent!important;color:#fff!important;border:1px solid rgba(255,255,255,.42)!important}
-@media(max-width:720px){
-  .case-study-feature{margin:0!important;padding:22px!important;background:#171714!important;color:#fff!important}
-  .case-study-feature h2{color:#fff!important}
-  .case-study-feature p{color:rgba(255,255,255,.76)!important}
-}
-
-/* User-approved primary corporate logo. Use one source across header and footer. */
-.site-header .brand,.site-footer .brand{display:block!important;flex:0 0 168px;width:168px;min-width:168px;height:112px;background:transparent url('/assets/regent-collection-primary-4k.webp?v=20261008-8') center/contain no-repeat!important;border-radius:2px;overflow:hidden;font-size:0}
-.site-header .brand .brand-mark,.site-footer .brand .brand-mark,.site-header .brand .brand-copy,.site-footer .brand .brand-copy{display:none!important}
-.site-header .nav-wrap{min-height:120px}
-.site-footer .footer-brand .brand{margin-bottom:12px}
+/* Corporate identity and restrained, responsive layout.
+   One approved brand asset; keep desktop, tablet and mobile sizing together. */
+.corporate-logo-link{display:inline-block}
+.corporate-logo-full{display:block;max-width:180px;height:auto}
+.official-logo-panel{background:transparent;border:0;padding:0}
 .official-logo-panel img{width:100%;max-width:500px;margin-inline:auto}
-@media(max-width:1080px){.site-header .nav-wrap{min-height:106px!important}.site-header .nav-links{top:106px!important;max-height:calc(100dvh - 106px)!important}.site-header .brand{width:153px;min-width:153px;flex-basis:153px;height:102px}}
-@media(max-width:620px){.site-header .nav-wrap{min-height:96px!important}.site-header .nav-links{top:96px!important;max-height:calc(100dvh - 96px)!important}.site-header .brand{width:138px;min-width:138px;flex-basis:138px;height:92px}.site-footer .brand{width:168px;min-width:168px;flex-basis:168px;height:112px}}
 
-/* Fully transparent corporate identity presentation */
-.official-logo-panel{background:transparent!important;border:0!important;padding:0!important}
-.site-header .brand,.site-footer .brand{background-color:transparent!important;border-radius:0!important}
+.site-header .nav-wrap{min-height:96px;gap:24px}
+.site-header .brand,.site-footer .brand{
+  display:block;flex:0 0 150px;width:150px;min-width:150px;height:92px;
+  background:transparent url('/assets/regent-collection-primary-4k.webp?v=20261008-9') center/contain no-repeat;
+  border:0;border-radius:0;overflow:hidden;font-size:0;
+}
+.site-header .brand .brand-mark,.site-footer .brand .brand-mark,
+.site-header .brand .brand-copy,.site-footer .brand .brand-copy{display:none}
+.site-header .nav-links{margin-left:auto;gap:3px}
+.site-header .nav-links a{font-size:13px;line-height:1.35;padding:10px 9px}
+.site-header .nav-links .nav-cta{margin-left:7px;padding:10px 14px!important;font-weight:650}
+.site-footer .brand{width:160px;min-width:160px;flex-basis:160px;height:106px}
+.site-footer .footer-brand .brand{margin-bottom:14px}
+.site-footer .footer-grid{column-gap:42px;row-gap:32px}
+.site-footer .footer-col h4{font-size:11px;letter-spacing:.12em}
+.site-footer .footer-col a,.site-footer .footer-col span{font-size:13px;line-height:1.65}
+.site-footer .footer-brand p{font-size:13px}
+
+.hero{min-height:560px}
+.hero-grid{grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);gap:clamp(34px,5vw,72px);padding:76px 0}
+.hero h1{font-size:clamp(46px,5.2vw,69px);line-height:1.075;letter-spacing:-.03em;max-width:800px;font-weight:590}
+.hero p{font-size:18px;line-height:1.7;max-width:640px;margin-top:24px}
+.hero-panel{width:min(100%,320px);justify-self:end;padding-left:27px}
+.hero-panel .stat{padding:18px 0}
+.hero-panel .stat strong{font-size:23px;letter-spacing:-.02em}
+.page-hero{padding:80px 0 66px}
+.page-hero h1{font-size:clamp(43px,5.2vw,66px);line-height:1.1;letter-spacing:-.025em}
+.page-hero p{max-width:720px}
+section{padding:76px 0}
+.section-heading{grid-template-columns:minmax(120px,.4fr) minmax(0,1.6fr);gap:40px;margin-bottom:38px}
+.section-heading h2{font-size:clamp(32px,3.7vw,44px);line-height:1.17}
+.lead{font-size:18px;line-height:1.7}
+.plain-row{grid-template-columns:230px minmax(0,1fr);gap:34px}
+.plain-row h3{font-size:19px}
+
+.case-study-feature{display:grid;grid-template-columns:minmax(180px,.5fr) minmax(0,1.5fr);gap:40px;align-items:stretch;background:var(--ink)!important;color:#fff!important;border:1px solid #2d2d28!important;padding:36px!important}
+.case-proof{display:flex;flex-direction:column;justify-content:flex-end;min-height:205px;border-right:1px solid rgba(255,255,255,.18);padding:0 28px 0 0}
+.case-proof .kicker{color:var(--accent-light);margin-bottom:auto}
+.case-proof strong{font-size:27px;line-height:1.12;color:#fff}
+.case-proof span:last-child{font-size:12px;color:rgba(255,255,255,.68);margin-top:8px}
+.case-study-feature h2{color:#fff;font-size:clamp(29px,3.4vw,42px)}
+.case-study-feature p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.7}
+.case-study-feature .btn-primary{background:var(--accent-light);color:var(--ink)}
+.case-study-feature .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+
+@media(max-width:1080px){
+  .site-header .nav-wrap{min-height:84px}
+  .site-header .brand{width:137px;min-width:137px;flex-basis:137px;height:80px}
+  .site-header .nav-links{top:84px!important;max-height:calc(100dvh - 84px)!important;margin-left:0}
+  .site-footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-grid{grid-template-columns:1fr;gap:36px;padding:64px 0}
+  .hero-panel{justify-self:start;width:min(100%,650px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding:15px 0 0}
+  .hero-panel .stat{border-bottom:0}
+  .section-heading{grid-template-columns:1fr;gap:14px}
+  .plain-row{grid-template-columns:190px minmax(0,1fr)}
+}
+@media(max-width:720px){
+  section{padding:56px 0}
+  .page-hero{padding:64px 0 52px}
+  .hero h1{font-size:clamp(40px,8.5vw,55px)}
+  .hero-grid{padding:52px 0}
+  .hero-panel{grid-template-columns:1fr;gap:0}
+  .hero-panel .stat{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .hero-panel .stat:last-child{border-bottom:0}
+  .plain-row{grid-template-columns:1fr;gap:6px}
+  .case-study-feature{grid-template-columns:1fr;gap:22px;padding:24px!important}
+  .case-proof{min-height:0;border-right:0;border-bottom:1px solid rgba(255,255,255,.18);padding:0 0 20px}
+  .case-proof .kicker{margin-bottom:16px}
+  .case-study-feature h2{font-size:clamp(29px,7vw,36px)}
+}
+@media(max-width:620px){
+  .site-header .nav-wrap{min-height:78px}
+  .site-header .brand{width:118px;min-width:118px;flex-basis:118px;height:74px}
+  .site-header .nav-links{top:78px!important;max-height:calc(100dvh - 78px)!important}
+  .site-footer .footer-grid{grid-template-columns:1fr}
+  .site-footer .brand{width:150px;min-width:150px;flex-basis:150px;height:100px}
+  .page-hero h1{font-size:clamp(40px,9.5vw,52px)}
+  .lead{font-size:17px}
+}
