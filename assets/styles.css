@@ -127,3 +127,17 @@ section{padding:76px 0}
   .page-hero h1{font-size:clamp(40px,9.5vw,52px)}
   .lead{font-size:17px}
 }
+
+/* Emil design engineering trial — isolated test branch only.
+   Subtle feedback, explicit transitions, pointer-aware hover and accessible motion. */
+@media (hover:hover) and (pointer:fine) {
+  .btn, .menu-toggle { transition: background-color 160ms ease, border-color 160ms ease, transform 140ms cubic-bezier(.23,1,.32,1); }
+  .btn:active:not(:disabled), .menu-toggle:active:not(:disabled) { transform:scale(.98); }
+}
+@media (hover:none), (pointer:coarse) {
+  .btn:hover, .menu-toggle:hover { transform:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .btn, .menu-toggle { transition-duration:0.01ms; }
+  .btn:active, .menu-toggle:active { transform:none; }
+}
